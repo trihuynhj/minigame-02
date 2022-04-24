@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    //public GameController gameController;
+    public GameController gameController;
 
     private BoxCollider2D boxCollider;
     public float speed;
@@ -27,13 +27,13 @@ public class Entity : MonoBehaviour
                 boxCollider.isTrigger = false;
                 return;
             }
-            
-            Debug.Log("HIT PLAYER");
+
+            gameController.point++;
             Destroy(gameObject);
         }
         if (collision.CompareTag("Bound"))
         {
-            Debug.Log("HIT BOUND");
+            gameController.health--;
             Destroy(gameObject);
 
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EntityController : MonoBehaviour
 {
-    //[SerializeField] private GameController gameController;
+    [SerializeField] private GameController gameController;
     [SerializeField] private GameObject entityPrefab;
 
     [SerializeField] private float entitySpeed;
@@ -25,7 +25,7 @@ public class EntityController : MonoBehaviour
         entity.transform.position = new Vector3(Random.Range(-screenBounds.x + entity.transform.localScale.x * .5f, screenBounds.x - entity.transform.localScale.x * .5f), screenBounds.y + 1f, 0f);
 
         Entity entityScript = entity.GetComponent<Entity>();
-        //entityScript.gameController = gameController;
+        entityScript.gameController = gameController;
         entityScript.speed = entitySpeed;
     }
 }
