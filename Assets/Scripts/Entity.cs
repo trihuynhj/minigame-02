@@ -35,9 +35,6 @@ public class Entity : MonoBehaviour
         {
             gameController.health--;
             Destroy(gameObject);
-
         }
-
-        
     }
 }
