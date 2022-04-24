@@ -15,10 +15,10 @@ public class Entity : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, 0f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (CompareTag("Player")) { Debug.Log("HIT PLAYER"); }
-        if (CompareTag("Bound")) { Debug.Log("HIT BOUND"); }
+        if (collision.CompareTag("Player")) { Debug.Log("HIT PLAYER"); }
+        if (collision.CompareTag("Bound")) { Debug.Log("HIT BOUND"); }
 
         Destroy(gameObject);
     }
