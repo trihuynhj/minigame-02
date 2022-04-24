@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    //public GameController gameController;
+
+    private BoxCollider2D boxCollider;
     public float speed;
-    private Vector3 destination;
 
     private void Start()
     {
-        destination = new Vector3(transform.position.x, -20f, 0f);
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -15,11 +17,27 @@ public class Entity : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, 0f);
     }
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) { Debug.Log("HIT PLAYER"); }
-        if (collision.CompareTag("Bound")) { Debug.Log("HIT BOUND"); }
+        if (collision.CompareTag("Player"))
+        {
+            if (collision.transform.position.y + collision.transform.localScale.y * .5f - .5f > transform.position.y - transform.localScale.y * .5f)
+            {
+                boxCollider.isTrigger = false;
+                return;
+            }
+            
+            Debug.Log("HIT PLAYER");
+            Destroy(gameObject);
+        }
+        if (collision.CompareTag("Bound"))
+        {
+            Debug.Log("HIT BOUND");
+            Destroy(gameObject);
 
-        Destroy(gameObject);
+        }
+
+        
     }
 }
