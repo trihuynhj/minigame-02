@@ -24,7 +24,7 @@ public class Entity : MonoBehaviour
         if (collision.CompareTag("Entity")) { rb.IsSleeping(); }
         else if (collision.CompareTag("Player"))
         {
-            if (collision.transform.position.y + collision.transform.localScale.y * .5f - .4f > transform.position.y - transform.localScale.y * .5f)
+            if (collision.transform.position.y + collision.transform.localScale.y * .5f - .7f > transform.position.y - transform.localScale.y * .5f)
             {
                 boxCollider.isTrigger = false;
                 return;
