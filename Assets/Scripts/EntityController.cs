@@ -26,5 +26,6 @@ public class EntityController : MonoBehaviour
 
         Entity entityScript = entity.GetComponent<Entity>();
         entityScript.gameController = gameController;
+        entityScript.speed = entitySpeed;
     }
 }
