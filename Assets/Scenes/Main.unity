@@ -424,6 +424,7 @@ MonoBehaviour:
   levelText: {fileID: 636564472}
   pointText: {fileID: 1126819580}
   healthText: {fileID: 1551056047}
+  leftBound: 4.53
 --- !u!4 &759469139
 Transform:
   m_ObjectHideFlags: 0
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3012ede5709e4f44ab2dc155bfbddab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 759469138}
 --- !u!61 &846622439
 BoxCollider2D:
   m_ObjectHideFlags: 0

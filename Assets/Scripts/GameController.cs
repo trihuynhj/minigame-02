@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text pointText;
     [SerializeField] private Text healthText;
 
+    // Accounts for the MetaBar on the left side
+    public float leftBound;
+
     private void Start()
     {
         level = 0;

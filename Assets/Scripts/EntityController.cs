@@ -22,7 +22,7 @@ public class EntityController : MonoBehaviour
     private void SpawnEntity()
     {
         GameObject entity = Instantiate(entityPrefab, transform);
-        entity.transform.position = new Vector3(Random.Range(-screenBounds.x + entity.transform.localScale.x * .5f, screenBounds.x - entity.transform.localScale.x * .5f), screenBounds.y + 1f, 0f);
+        entity.transform.position = new Vector3(Random.Range(-screenBounds.x + gameController.leftBound + entity.transform.localScale.x * .5f, screenBounds.x - entity.transform.localScale.x * .5f), screenBounds.y + 1f, 0f);
 
         Entity entityScript = entity.GetComponent<Entity>();
         entityScript.gameController = gameController;
