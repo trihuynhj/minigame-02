@@ -17,6 +17,9 @@ public class Entity : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(rb.velocity.x, - speed * Time.deltaTime);
+
+        // Make sure Entity is destroyed if somehow collided and remained on top of Player object
+        if (!boxCollider.isTrigger && transform.position.y >= -4f) { Destroy(gameObject); }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +27,7 @@ public class Entity : MonoBehaviour
         if (collision.CompareTag("Entity")) { rb.IsSleeping(); }
         else if (collision.CompareTag("Player"))
         {
-            if (collision.transform.position.y + collision.transform.localScale.y * .5f - .7f > transform.position.y - transform.localScale.y * .5f)
+            if (collision.transform.position.y + collision.transform.localScale.y * .5f - .3f > transform.position.y - transform.localScale.y * .5f)
             {
                 boxCollider.isTrigger = false;
                 return;
