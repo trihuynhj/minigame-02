@@ -5,11 +5,11 @@ public class GameController : MonoBehaviour
 {
     private int[] levels = new int[5]
     {
-        10,
-        15,
-        20,
         30,
-        50
+        50,
+        120,
+        300,
+        500
     };
     public int level, point, health;
 
@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
 
     // Accounts for the MetaBar on the left side
     public float leftBound;
+
+    [SerializeField] private ProgressBar progressBar;
 
     private void Start()
     {
@@ -34,6 +36,10 @@ public class GameController : MonoBehaviour
         levelText.text = level.ToString();
         pointText.text = point.ToString();
         healthText.text = health.ToString();
+
+        // Update ProgressBar
+        progressBar.SetMinMaxValue(levels[level]);
+        progressBar.SetValue(point);
     }
 
     private void UpdateLevel()
