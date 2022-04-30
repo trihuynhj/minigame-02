@@ -4,14 +4,15 @@ using UnityEngine;
 public class LevelPost : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
-    [SerializeField] private Transform levelBar;
+    [SerializeField] private RectTransform levelBar;
 
     [HideInInspector] public bool levelUp;
-    private float distance = 140f;
+    private float distance;
 
     private void Start()
     {
-
+        // Calculate the Traverse Distance
+        distance = levelBar.rect.height / gameController.levels.Length;
     }
 
     private void Update()

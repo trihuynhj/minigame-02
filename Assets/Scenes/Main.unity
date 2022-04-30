@@ -2140,8 +2140,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "To-do:\n- Level: LevelPost's movement\n- Progress: \n- Health: integrate
-    into GameController"
+  m_Text: 'To-do:
+
+    - Entity: Catch & Drop
+
+    - Pause Menu'
 --- !u!222 &1724720704
 CanvasRenderer:
   m_ObjectHideFlags: 0
