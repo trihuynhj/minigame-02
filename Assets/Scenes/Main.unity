@@ -1049,7 +1049,7 @@ MonoBehaviour:
   levelText: {fileID: 636564472}
   pointText: {fileID: 1126819580}
   healthText: {fileID: 1551056047}
-  leftBound: 3.54
+  leftBound: 1.855
   progressBar: {fileID: 45906902}
 --- !u!4 &759469139
 Transform:
@@ -2272,6 +2272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 759469138}
+  health: {fileID: 1980651497}
   entityPrefab: {fileID: 5210018944462768255, guid: 8f70380158cfdd94dade996e709bd0de, type: 3}
   entitySpeed: 100
 --- !u!4 &1776330053
@@ -2297,6 +2298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980651496}
+  - component: {fileID: 1980651497}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -2333,6 +2335,20 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1980651497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980651495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb793456dca4914fa4b754f8efaed6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 759469138}
+  entityEnter: 0
 --- !u!1 &2035756440
 GameObject:
   m_ObjectHideFlags: 0

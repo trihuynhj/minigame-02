@@ -3,6 +3,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public GameController gameController;
+    public Health health;
 
     private BoxCollider2D boxCollider;
     private Rigidbody2D rb;
@@ -18,7 +19,7 @@ public class Entity : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, - speed * Time.deltaTime);
 
-        // Make sure Entity is destroyed if somehow collided and remained on top of Player object
+        // Make sure Entity is destroyed if somehow collided and remained on top of Player
         if (!boxCollider.isTrigger && transform.position.y >= -4f) { Destroy(gameObject); }
     }
     
@@ -27,6 +28,7 @@ public class Entity : MonoBehaviour
         if (collision.CompareTag("Entity")) { rb.IsSleeping(); }
         else if (collision.CompareTag("Player"))
         {
+            // Make sure Physics2D is applied when Entity is not collided with Player at top side
             if (collision.transform.position.y + collision.transform.localScale.y * .5f - .3f > transform.position.y - transform.localScale.y * .5f)
             {
                 boxCollider.isTrigger = false;
@@ -38,7 +40,8 @@ public class Entity : MonoBehaviour
         }
         else
         {
-            gameController.health--;
+            // Send trigger so Health functions properly
+            health.entityEnter = true;
             Destroy(gameObject);
         }
     }

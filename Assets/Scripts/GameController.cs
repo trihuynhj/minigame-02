@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    // PROGRESSION FIELDS
     private int[] levels = new int[5]
     {
         30,
@@ -26,7 +27,7 @@ public class GameController : MonoBehaviour
     {
         level = 0;
         point = 0;
-        health = 5;
+        health = 10;
     }
 
     private void Update()
