@@ -3,7 +3,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public GameController gameController;
-    public Health health;
+    public HealthController healthController;
 
     private BoxCollider2D boxCollider;
     private Rigidbody2D rb;
@@ -40,8 +40,8 @@ public class Entity : MonoBehaviour
         }
         else
         {
-            // Send trigger so Health functions properly
-            health.entityEnter = true;
+            // Send trigger so HealthController can respond properly
+            healthController.entityEnter = true;
             Destroy(gameObject);
         }
     }

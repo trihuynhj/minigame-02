@@ -3,7 +3,7 @@ using UnityEngine;
 public class EntityController : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
-    [SerializeField] private Health health;
+    [SerializeField] private HealthController healthController;
     [SerializeField] private GameObject entityPrefab;
 
     [SerializeField] private float entitySpeed;
@@ -27,7 +27,7 @@ public class EntityController : MonoBehaviour
 
         Entity entityScript = entity.GetComponent<Entity>();
         entityScript.gameController = gameController;
-        entityScript.health = health;
+        entityScript.healthController = healthController;
         entityScript.speed = entitySpeed;
     }
 }

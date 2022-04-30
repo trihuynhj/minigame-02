@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public float leftBound;
 
     [SerializeField] private ProgressBar progressBar;
+    [SerializeField] private HealthController healthController;
 
     private void Start()
     {
@@ -51,6 +52,9 @@ public class GameController : MonoBehaviour
         {
             point = 0;
             level++;
+
+            // Send trigger so Health functions properly
+            healthController.levelUp = true;
         }
     }
 }
