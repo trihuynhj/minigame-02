@@ -18,8 +18,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private ProgressBar progressBar;
     [SerializeField] private HealthController healthController;
 
-    private int[] test = new int[1];
-
     private void Start()
     {
         level = 0;
@@ -38,6 +36,7 @@ public class GameController : MonoBehaviour
         // Update ProgressBar
         if (level >= levels.Length) 
         {
+            // Edge Case (Final Level)
             progressBar.SetMinMaxValue(levels[level - 1]);
             progressBar.SetValue(levels[level - 1]);
         }
@@ -51,6 +50,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateLevel()
     {
+        // Edge Case (Final Level)
         if (level >= levels.Length) 
         {
             point = levels[level - 1];
