@@ -36,14 +36,26 @@ public class GameController : MonoBehaviour
         healthText.text = health.ToString();
 
         // Update ProgressBar
-        if (level >= levels.Length) { progressBar.SetMinMaxValue(levels[level - 1]); }
-        else { progressBar.SetMinMaxValue(levels[level]); }
-        progressBar.SetValue(point);
+        if (level >= levels.Length) 
+        {
+            progressBar.SetMinMaxValue(levels[level - 1]);
+            progressBar.SetValue(levels[level - 1]);
+        }
+        else 
+        {
+            progressBar.SetMinMaxValue(levels[level]);
+            progressBar.SetValue(point);
+        }
+        
     }
 
     private void UpdateLevel()
     {
-        if (level >= levels.Length) { return; }
+        if (level >= levels.Length) 
+        {
+            point = levels[level - 1];
+            return;
+        }
 
         if (point >= levels[level])
         {
