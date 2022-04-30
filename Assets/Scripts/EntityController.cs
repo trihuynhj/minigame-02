@@ -12,6 +12,7 @@ public class EntityController : MonoBehaviour
 
     private void Start()
     {
+        // Calculate playable area
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3((float)Screen.width, (float)Screen.height, 0f));
     }
 
@@ -29,5 +30,14 @@ public class EntityController : MonoBehaviour
         entityScript.gameController = gameController;
         entityScript.healthController = healthController;
         entityScript.speed = entitySpeed;
+        entityScript.isCatch = GenerateEntityType();
+    }
+
+    // Generate Entity Type of Catch (80%) or Drop (20%)
+    private bool GenerateEntityType()
+    {
+        int odd = Random.Range(0, 100);
+        if (odd < 20) { return false; }
+        else { return true; }
     }
 }
