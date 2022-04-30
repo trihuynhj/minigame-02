@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
+    [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite Player01, Player02, Player03;
 
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
+        // Disable when game is paused
+        if (pauseMenu.CheckGamePause()) { return; }
+
         // Calculate Player's position according to Mouse Position
         Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3((float)mouseWorldPosition.x, fixedHorizontalPosition, 0f);
