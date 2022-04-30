@@ -4,14 +4,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     // PROGRESSION FIELDS
-    private int[] levels = new int[5]
-    {
-        30,
-        50,
-        120,
-        300,
-        500
-    };
+    public int[] levels;
     public int level, point, health;
 
     [SerializeField] private Text levelText;
@@ -21,8 +14,11 @@ public class GameController : MonoBehaviour
     // Accounts for the MetaBar on the left side
     public float leftBound;
 
+    [SerializeField] private LevelPost levelPost;
     [SerializeField] private ProgressBar progressBar;
     [SerializeField] private HealthController healthController;
+
+    private int[] test = new int[1];
 
     private void Start()
     {
@@ -40,21 +36,23 @@ public class GameController : MonoBehaviour
         healthText.text = health.ToString();
 
         // Update ProgressBar
-        progressBar.SetMinMaxValue(levels[level]);
+        if (level >= levels.Length) { progressBar.SetMinMaxValue(levels[level - 1]); }
+        else { progressBar.SetMinMaxValue(levels[level]); }
         progressBar.SetValue(point);
     }
 
     private void UpdateLevel()
     {
-        if (level >= 5) { return; }
+        if (level >= levels.Length) { return; }
 
         if (point >= levels[level])
         {
             point = 0;
             level++;
 
-            // Send trigger so Health functions properly
+            // Send trigger so other Controllers can respond properly
             healthController.levelUp = true;
+            levelPost.levelUp = true;
         }
     }
 }

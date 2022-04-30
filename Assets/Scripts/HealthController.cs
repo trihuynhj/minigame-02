@@ -4,8 +4,9 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
+    [HideInInspector] public bool entityEnter, levelUp;
+
     private List<GameObject> hearts = new List<GameObject>();
-    public bool entityEnter, levelUp;
 
     private void Start()
     {
