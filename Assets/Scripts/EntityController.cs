@@ -40,6 +40,7 @@ public class EntityController : MonoBehaviour
     }
 
 
+    // Generate Entity Speed according to current level
     private float GenerateEntitySpeed()
     {
         float entitySpeed = 1f;

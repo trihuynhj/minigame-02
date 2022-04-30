@@ -7,6 +7,7 @@ public class LevelPost : MonoBehaviour
     [SerializeField] private RectTransform levelBar;
 
     [HideInInspector] public bool levelUp;
+    [SerializeField] private float speed;
     private float distance;
 
     private void Start()
@@ -30,7 +31,7 @@ public class LevelPost : MonoBehaviour
 
         while (Vector3.Distance(transform.localPosition, destination) > .1f)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, destination, 50 * Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, destination, speed * Time.deltaTime);
             yield return null;
         }
 

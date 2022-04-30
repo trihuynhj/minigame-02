@@ -579,6 +579,7 @@ MonoBehaviour:
   gameController: {fileID: 759469138}
   levelBar: {fileID: 374542166}
   levelUp: 0
+  speed: 100
 --- !u!1 &374542165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1221,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 759469138}
+  spriteRenderer: {fileID: 846622436}
+  Player01: {fileID: 7482667652216324306, guid: e121b64ec69b6f048acf331160de72ce, type: 3}
+  Player02: {fileID: 7482667652216324306, guid: 7e40bbc4b2137cf458d536247be97571, type: 3}
+  Player03: {fileID: 7482667652216324306, guid: 1487bb1513cf2f84a97046b20e378aae, type: 3}
 --- !u!61 &846622439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2142,7 +2147,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'To-do:
 
-    - Entity: Catch & Drop
+    - Entity: spawnFrequency
 
     - Pause Menu'
 --- !u!222 &1724720704
