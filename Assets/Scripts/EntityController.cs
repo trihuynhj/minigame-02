@@ -6,8 +6,6 @@ public class EntityController : MonoBehaviour
     [SerializeField] private HealthController healthController;
     [SerializeField] private GameObject entityPrefab;
 
-    [SerializeField] private float entitySpeed;
-
     private Vector3 screenBounds;
 
     private void Start()
@@ -29,8 +27,8 @@ public class EntityController : MonoBehaviour
         Entity entityScript = entity.GetComponent<Entity>();
         entityScript.gameController = gameController;
         entityScript.healthController = healthController;
-        entityScript.speed = entitySpeed;
         entityScript.isCatch = GenerateEntityType();
+        entityScript.speed = GenerateEntitySpeed();
     }
 
     // Generate Entity Type of Catch (80%) or Drop (20%)
@@ -39,5 +37,35 @@ public class EntityController : MonoBehaviour
         int odd = Random.Range(0, 100);
         if (odd < 20) { return false; }
         else { return true; }
+    }
+
+
+    private float GenerateEntitySpeed()
+    {
+        float entitySpeed = 1f;
+
+        switch(gameController.level)
+        {
+            case 0:
+            case 1:
+                entitySpeed = Random.Range(50f, 100f);
+                break;
+
+            case 2:
+            case 3:
+                entitySpeed = Random.Range(100f, 200f);
+                break;
+
+            case 4:
+            case 5:
+                entitySpeed = Random.Range(200f, 400f);
+                break;
+            
+            case 6:
+                entitySpeed = Random.Range(300f, 500f);
+                break;
+        }
+
+        return entitySpeed;
     }
 }

@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce7c0e0a7a0dcb46af1be8a0572a910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels: 1e00000032000000780000002c010000f401000020030000
+  levels: 14000000280000006400000096000000c80000002c010000
   level: 0
   point: 0
   health: 0
@@ -2260,7 +2260,6 @@ MonoBehaviour:
   gameController: {fileID: 759469138}
   healthController: {fileID: 1980651497}
   entityPrefab: {fileID: 5210018944462768255, guid: 8f70380158cfdd94dade996e709bd0de, type: 3}
-  entitySpeed: 100
 --- !u!4 &1776330053
 Transform:
   m_ObjectHideFlags: 0
